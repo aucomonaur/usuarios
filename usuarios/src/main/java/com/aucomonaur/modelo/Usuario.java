@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -31,6 +35,7 @@ public class Usuario {
 	
 	public Usuario() {}
 
+	@JsonProperty(value="id_usuario")
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -39,6 +44,7 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 
+	@JsonProperty(value="nombre")
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
@@ -47,6 +53,7 @@ public class Usuario {
 		this.nombreCompleto = nombreCompleto;
 	}
 
+	@JsonProperty(value="correo")
 	public String getCorreo() {
 		return correo;
 	}
@@ -54,7 +61,8 @@ public class Usuario {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
+	
+	@JsonIgnore
 	public Integer getGenero() {
 		return genero;
 	}
@@ -62,7 +70,8 @@ public class Usuario {
 	public void setGenero(Integer genero) {
 		this.genero = genero;
 	}
-
+	
+	@JsonProperty(value="alias")
 	public String getAlias() {
 		return alias;
 	}
@@ -70,7 +79,8 @@ public class Usuario {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-
+	
+	@JsonIgnore
 	public String getContrasenia() {
 		return contrasenia;
 	}
@@ -78,7 +88,8 @@ public class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-
+	
+	@JsonIgnore
 	public String getContraseniaSalt() {
 		return contraseniaSalt;
 	}
@@ -87,6 +98,7 @@ public class Usuario {
 		this.contraseniaSalt = contraseniaSalt;
 	}
 
+	@JsonIgnore
 	public Long getIdCarrera() {
 		return idCarrera;
 	}

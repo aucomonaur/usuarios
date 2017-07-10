@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aucomonaur.modelo.Usuario;
+import com.aucomonaur.modelo.Json.UsuarioJson;
 import com.aucomonaur.repositorio.RepositorioUsuarios;
 
 @RestController
@@ -40,11 +41,11 @@ public class UsuarioController {
 	}
 	
 	@GetMapping(value="/search_correo")
-	public ResponseEntity<Usuario> searchCorreo(String correo){
+	public ResponseEntity<UsuarioJson> searchCorreo(String correo){
 		
 		Usuario usuario;
 		usuario = repositorioUsuarios.findByCorreo(correo);
 		
-		return new ResponseEntity<Usuario>(usuario,HttpStatus.OK);
+		return new ResponseEntity<UsuarioJson>(new UsuarioJson(usuario),HttpStatus.OK);
 	}
 }
